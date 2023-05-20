@@ -1,0 +1,48 @@
+<!-- empty wishlist  -->
+<div class="contaier-fluid" *ngIf="allwishlistitem.length==0" >
+    <div class="row">
+        <div class="col-md-6 p-5 mt-4   ">
+            <div class="d-flex align-items-center justify-content-center mt-5">
+                <h1>Your Wishlist is Empty !</h1>
+
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+                <a class="btn btn-dark d-block w-25 mt-4" routerLink="">Back to Home</a>
+            </div>
+        </div>
+        <div class="col-md-6 rightcol mt-3">
+            <img class="w-75 imgcart" src="https://img.freepik.com/free-vector/add-notes-concept-illustration_114360-2496.jpg?w=740&t=st=1683570604~exp=1683571204~hmac=70da298031b2de9de819a4822633b12a7ecfb405d745ba6982f6dfaac7388463" alt="">
+
+        </div>
+    </div>
+</div>
+<!-- wishlist with content -->
+<section class="py-5" *ngIf="allwishlistitem.length!=0" >
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let wish of allwishlistitem">
+                <div class="card h-100 shadow">
+                    <!-- Product image-->
+                    <img class="card-img-top h-50 w-100 mb-2 p-3" [src]="wish.image" alt="..." />
+                    <!-- Product details-->
+                    <div class="h-25 p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{wish.title}}</h5>
+                            <!-- Product price-->
+                            {{wish.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="d-flex justify-content-around">
+                            <a (click)="removewishlistitem(wish.id)" class="btn btn-outline-dark btn-danger text-white" ><i class="fa-solid fa-trash"></i></a>
+                            <a (click)="addtocart(wish)" class="btn btn-outline-white bg-dark" ><i class="fa-solid fa-cart-plus text-white"></i></a>
+                        </div>
+                  </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

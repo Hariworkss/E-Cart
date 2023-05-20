@@ -1,0 +1,60 @@
+<!-- Header-->
+<header class="hero-bg  py-5">
+    <div class="container row px-4 px-lg-5 my-5">
+        <div class="text-center magicpattern  text-white col-md-6 mb-4">
+            <h1 class="display-5 text-dark fw-bolder  mb-4">Welcome to </h1>
+            <!-- <h1 class="display-2 mb-5 fw-bolder cartifytext">  Cartify</h1> -->
+            <div class="waviy pt-4">
+                <span  style="--i:1">C</span>
+                <span class="ms-3" style="--i:2">A</span>
+                <span class="ms-3" style="--i:3">R</span>
+                <span class="ms-3" style="--i:4">T</span>
+                <span class="ms-3" style="--i:5">I</span>
+                <span class="ms-3" style="--i:6">F</span>
+                <span class="ms-3" style="--i:7">Y</span>
+               
+             
+               </div>
+               <div class="pt-5">
+                <h3 class=" fw-bold text-dark pt-5 mb-3 display-6">Shopping Made Easier</h3>
+               </div>
+        </div>
+        <div class="col-md-6 p-0 ">
+            
+                <img class="header-bg w-100" src="https://img.freepik.com/free-vector/ecommerce-web-page-concept-illustration_114360-8204.jpg?w=900&t=st=1683196381~exp=1683196981~hmac=eb15efcc952c019b7edc26259a8f7286636ad35314786cdc22752e6830507a1a" alt="">
+            
+        </div>
+    </div>
+</header>
+<hr>
+     <!-- Section-->
+     <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <!-- card column for ngfor -->
+                <div class="col mb-5  " *ngFor="let product of allProducts | filter:searchTerm:'title'">  
+                    <div class="card h-100 ">
+                        <!-- Product image-->
+                        <img class="card-img-top" [src]="product.image" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{product.title}}</h5>
+                                <!-- Product price-->
+                                ${{product.price}}
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto border-3  fw-bold" routerLink="viewproducts/{{product.id}}">View Product</a></div>
+                        </div>
+                        <div class="d-flex justify-content-around pb-3">
+                            <a class="btn btn-outline-dark icon-orange " routerLink="viewproducts/:id"><i class="fa-solid fa-heart"></i></a>
+                            <a (click)="addtocart(product)" class="btn btn-outline-dark " ><i class="fa-solid fa-cart-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

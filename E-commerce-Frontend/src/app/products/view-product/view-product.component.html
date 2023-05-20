@@ -1,0 +1,30 @@
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0 w-50" [src]="product.image" alt="..." /></div>
+            <div class="col-md-6">
+                <div class="small mb-1 fs-5">Product id : {{product._id}}</div>
+                <h1 class="display-5 fw-bolder">Shop item template</h1>
+                <div class="fs-5 mb-5">
+                    <h1 class="text-success mt-3">$ {{product.price}} </h1> 
+                    <span class="cartifytext "><span class="text-decoration-line-through me-3">$ {{product.price+6}}</span> <span class="cartifytext ms-2 fw-bold">{{discountper}}% off</span> </span>
+                </div>
+                <p class="lead">{{product.description}}</p>
+                <div class="d-flex">
+                    <form class="d-flex mt-1 mb-2">
+                        <button (click)="addtoWishlist()" class="btn btn-outline-dark me-5">
+                            <i class="bi-cart-fill me-1"></i>
+                            <i class="fa-solid fa-heart icon-purple cartifytext me-1"></i>
+                            Add to Wishlist
+                        </button>
+                        <button (click)="addtocart(product)"  class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            <span class="fa fa-cart-plus ms-1 me-1 "></span>
+                            Add to Cart
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
